@@ -4,7 +4,8 @@ from typing import Union, Any, TypeVar, Mapping
 dd = TypeVar('T')
 
 
-def safely_get_value(dct: Mapping, key: Any, default: Union[dd, None] = None):
+def safely_get_value(dct: Mapping, key: Any,
+                     default: Union[dd, None] = None) -> Union[Any, dd]:
     """ Returns first item of list """
     if key in dct:
         return dct[key]
