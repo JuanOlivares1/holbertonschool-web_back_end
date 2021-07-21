@@ -2,9 +2,10 @@
 """ Module """
 import asyncio
 import random
+from typing import Generator
 
 
-async def async_generator():
+async def async_generator() -> Generator[float]:
     """ async function """
     rand = 0
 
