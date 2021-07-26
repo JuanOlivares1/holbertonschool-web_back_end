@@ -26,7 +26,7 @@ class FIFOCache(BaseCaching):
                     print("DISCARD: {}".format(k))
                     self.cache_data[key] = item
                     self.queue.append(key)
-    
+
     def get(self, key):
         """ Retrive data from cache """
         if key and key in self.cache_data.keys():
