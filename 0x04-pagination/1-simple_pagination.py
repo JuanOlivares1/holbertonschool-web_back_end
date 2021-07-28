@@ -33,7 +33,6 @@ class Server:
         assert(page > 0)
         assert(page_size > 0)
 
-
         index = index_range(page, page_size)
         self.dataset()
         rtn_li = []
