@@ -3,10 +3,10 @@
 import re
 
 
-def filter_datum(fields: str, redaction: str, 
+def filter_datum(fields: str, redaction: str,
                  message: str, separator: str) -> str:
     """ Regex on string """
-    s = messageñ
+    s = message
     for field in fields:
-        s = re.sub("(?<={}=)[\w/]*(?=;)".format(field), redaction, s)
+        s = re.sub(r"(?<={}=)[\w/]*(?=;)".format(field), redaction, s)
     return s
