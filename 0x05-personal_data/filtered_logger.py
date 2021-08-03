@@ -53,7 +53,7 @@ def get_logger() -> logging.Logger:
     return logger
 
 
-def get_db():
+def get_db() -> mysql.connect:
     """ Get data from db
     """
     auth = {
