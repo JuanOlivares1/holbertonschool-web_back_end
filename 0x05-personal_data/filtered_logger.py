@@ -5,8 +5,8 @@ import re
 
 def filter_datum(fields: str, redaction: str,
                  message: str, separator: str) -> str:
-    """ Regex on string """
-    s = message
+    """ Filter data with regex and obfuscate """
     for field in fields:
-        s = re.sub(r"(?<={}=)[\w/]*(?=;)".format(field), redaction, s)
-    return s
+        message = re.sub(r"(?<={}=)[\w/]*(?=;)".format(field),
+                         redaction, message)
+    return message
