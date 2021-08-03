@@ -40,6 +40,7 @@ def filter_datum(fields: List[str], redaction: str,
 
 
 def get_logger() -> logging.Logger:
+    """ generates a logger """
     logger = logging.getLogger("user_data")
     logger.setLevel(logging.INFO)
 
