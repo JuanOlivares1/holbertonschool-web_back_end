@@ -62,5 +62,5 @@ def get_db() -> mysql.connector:
         'host': os.environ["PERSONAL_DATA_DB_HOST"],
         'database': os.environ["PERSONAL_DATA_DB_NAME"]
     }
-    cnx = mysql.connector.connect(auth)
+    cnx = mysql.connector.connect(**auth)
     return cnx
