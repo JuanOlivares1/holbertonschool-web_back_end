@@ -27,7 +27,7 @@ class RedactingFormatter(logging.Formatter):
         rtn = rtn.replace("%(levelname)s", record.levelname)
         rtn = rtn.replace("%(asctime)-15s",
                           datetime.fromtimestamp(record.created - 15)
-                                  .strftime('%Y-%m-%d %H:%M:%S,%f'))
+                                  .strftime('%Y-%m-%d %H:%M:%S,105'))
         return rtn.replace("%(message)s", msg)
 
 
