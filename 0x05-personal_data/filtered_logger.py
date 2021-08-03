@@ -22,14 +22,8 @@ class RedactingFormatter(logging.Formatter):
         """ filter values in incoming log records using filter_datum
         """
         msg = filter_datum(self.fields, self.REDACTION,
-                           record.msg, self.SEPARATOR).replace(";", "; ")
-        rtn = self.FORMAT
-        rtn = rtn.replace("%(name)s", record.name)
-        rtn = rtn.replace("%(levelname)s", record.levelname)
-        rtn = rtn.replace("%(asctime)-15s", datetime
-                          .fromtimestamp(record.created - 15)
-                          .strftime('%Y-%m-%d %H:%M:%S,%f'))
-        return rtn.replace("%(message)s", msg)
+                           super().format(record), self.SEPARATOR)
+        return msg
 
 
 def filter_datum(fields: List[str], redaction: str,
