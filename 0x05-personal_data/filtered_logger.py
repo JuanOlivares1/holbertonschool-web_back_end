@@ -23,11 +23,15 @@ class RedactingFormatter(logging.Formatter):
         """
         msg = filter_datum(self.fields, self.REDACTION,
                            record.msg, self.SEPARATOR).replace(";", "; ")
-        rtn = self.FORMAT.replace("%(name)s", record.name)
+
+        
+        rtn = self.FORMAT
+        rtn = rtn.replace("%(name)s", record.name)
         rtn = rtn.replace("%(levelname)s", record.levelname)
         rtn = rtn.replace("%(asctime)-15s",
                           datetime.fromtimestamp(record.created - 15)
-                                  .strftime('%Y-%m-%d %H:%M:%S,105'))
+                                  .strftime('%Y-%m-%d %H:%M:%S,%f'))
+        print(self.FORMAT)
         return rtn.replace("%(message)s", msg)
 
 
