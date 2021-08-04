@@ -56,11 +56,10 @@ def get_logger() -> logging.Logger:
 def get_db() -> mysql.connector.connection.MySQLConnection:
     """ Get data from db
     """
-    user = os.environ("PERSONAL_DATA_DB_USERNAME"),
-    password = os.environ("PERSONAL_DATA_DB_PASSWORD"),
-    host = os.environ("PERSONAL_DATA_DB_HOST"),
-    database = os.environ("PERSONAL_DATA_DB_NAME")
-
+    user = os.getenv("PERSONAL_DATA_DB_USERNAME"),
+    password = os.getenv("PERSONAL_DATA_DB_PASSWORD"),
+    host = os.getenv("PERSONAL_DATA_DB_HOST"),
+    database = os.getenv("PERSONAL_DATA_DB_NAME")
     cnx = mysql.connector.connect(user=user, password=password,
                                   host=host, database=database)
     return cnx
