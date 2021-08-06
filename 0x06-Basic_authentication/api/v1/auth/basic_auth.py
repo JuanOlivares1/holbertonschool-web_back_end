@@ -14,14 +14,14 @@ class BasicAuth(Auth):
         if authorization_header is None:
             return None
 
-        if authorization_header is not str:
+        if type(authorization_header) is not str:
             return None
 
         if authorization_header[:5] != 'Basic':
             return None
         
         rtn = authorization_header.split()
-        if len(rtn) < 1:
+        if len(rtn) <= 1:
             return None
-        
+
         return rtn[1]
