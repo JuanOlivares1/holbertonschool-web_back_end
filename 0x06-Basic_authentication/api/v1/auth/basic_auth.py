@@ -7,7 +7,7 @@ from .auth import Auth
 class BasicAuth(Auth):
     """ Basic Auth class
     """
-    def extract_base64_authorization_header(self, 
+    def extract_base64_authorization_header(self,
                                             authorization_header: str) -> str:
         """ Base64 extract
         """
@@ -19,7 +19,7 @@ class BasicAuth(Auth):
 
         if authorization_header[:5] != 'Basic':
             return None
-        
+
         rtn = authorization_header.split()
         if len(rtn) <= 1:
             return None
