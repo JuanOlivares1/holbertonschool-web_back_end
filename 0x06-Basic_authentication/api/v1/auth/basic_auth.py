@@ -4,6 +4,7 @@
 from .auth import Auth
 from base64 import b64decode
 import binascii
+from typing import TypeVar
 
 
 class BasicAuth(Auth):
