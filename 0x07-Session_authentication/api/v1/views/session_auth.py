@@ -40,8 +40,8 @@ def session_auth() -> str:
     user.set_cookie(cookie_name, session)
     return user
 
-
-@app_views.route('/auth_session/login', methods=['DELETE'], strict_slashes=False)
+@app_views.route('/auth_session/login',
+                 methods=['DELETE'], strict_slashes=False)
 def logout() -> str:
     """ DELETE /auth_session/login
     """

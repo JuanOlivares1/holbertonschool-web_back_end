@@ -50,7 +50,5 @@ class SessionAuth(Auth):
         if user_id is None:
             return False
 
-        if not self.user_id_by_session_id.pop(session_id, None):
-            return False
-        else:
-            return True
+        del self.user_id_by_session_id[session_id]
+        return True
