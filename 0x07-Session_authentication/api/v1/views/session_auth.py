@@ -46,7 +46,8 @@ def delete() -> str:
     """ DELETE /auth_session/login
     """
     from api.v1.app import auth
-    if not auth.destroy_session(request):
+    rtn = auth.destroy_session(request)
+    if not rtn:
         abort(404)
         return False
     return jsonify({}), 200
