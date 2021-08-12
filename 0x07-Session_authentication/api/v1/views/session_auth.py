@@ -20,14 +20,14 @@ def session_auth() -> str:
 
     users = User()
     user = None
-    for userr in Users.search():
-        if userr.__dict__['email'] = email:
+    for userr in users.search():
+        if userr.__dict__['email'] == email:
             user = userr
 
     if not user:
         return jsonify({"error": "no user found for this email"}), 404
 
-    if not if user.is_valid_password(password):
+    if not user.is_valid_password(password):
         return jsonify({"error": "wrong password"}), 401
 
     from api.v1.app import auth
