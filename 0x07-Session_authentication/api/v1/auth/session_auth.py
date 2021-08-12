@@ -32,6 +32,6 @@ class SessionAuth(Auth):
         """
         """
         cookie = self.session_cookie(request)
-        user_id = self.user_id_for_session_id(cookie_value)
+        user_id = self.user_id_for_session_id(cookie)
         user = User()
         return user.get(user_id)
