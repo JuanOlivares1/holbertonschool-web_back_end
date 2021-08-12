@@ -42,7 +42,7 @@ def session_auth() -> str:
 
 @app_views.route('/auth_session/login',
                  methods=['DELETE'], strict_slashes=False)
-def logout() -> str:
+def delete() -> str:
     """ DELETE /auth_session/login
     """
     from api.v1.app import auth
