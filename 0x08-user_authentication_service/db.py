@@ -35,7 +35,9 @@ class DB:
         """ Method - create user
         """
         self.users_count += 1
-        newUser = User(id=self.users_count, email=email, hashed_password=hashed_password)
+        newUser = User(id=self.users_count,
+                       email=email,
+                       hashed_password=hashed_password)
         self._session.add(newUser)
         self._session.commit()
         return(newUser)
