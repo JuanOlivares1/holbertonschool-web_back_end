@@ -33,7 +33,9 @@ class DB:
     def add_user(self, email: str, hashed_password: str) -> User:
         """ Method - create user
         """
-        newUser = User(email=email, hashed_password=hashed_password)
-        self._session.add(newUser)
-        self._session.commit()
-        return(newUser)
+        if email is not None and hashed_password is not None:
+            newUser = User(email=email, hashed_password=hashed_password)
+            self._session.add(newUser)
+            self._session.commit()
+            return(newUser)
+        return None
