@@ -34,7 +34,9 @@ class DB:
     def add_user(self, email: str, hashed_password: str) -> User:
         """ Method - create user
         """
-        newUser = User(email=email, hashed_password=hashed_password)
+        newUser = User()
+        newUser.email = email
+        newUser.hashed_password = hashed_password
         if self.__session is None:
             self._session
         self.__session.add(newUser)
