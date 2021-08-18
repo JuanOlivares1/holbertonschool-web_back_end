@@ -37,8 +37,7 @@ class DB:
         newUser = User()
         newUser.email = email
         newUser.hashed_password = hashed_password
-        if self.__session is None:
-            self._session
-        self.__session.add(newUser)
-        self.__session.commit()
+        session = self._session
+        session.add(newUser)
+        session.commit()
         return newUser
