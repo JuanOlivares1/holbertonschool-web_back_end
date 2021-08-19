@@ -37,7 +37,7 @@ class Auth:
         except NoResultFound:
             return False
 
-    def create_session(self, email: str) -> Union[str, None]:
+    def create_session(self, email: str) -> [str, None]:
         """ generates sessions
         """
         try:
