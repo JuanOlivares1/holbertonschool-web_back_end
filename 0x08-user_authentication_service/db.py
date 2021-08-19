@@ -57,8 +57,8 @@ class DB:
         """
         user = self.find_user_by(id=user_id)
         for key, value in kwargs.items():
-            if key not in user.__dict__:
+            if key not in user.__dict__.keys():
                 raise ValueError
             else:
-                user.key = value
-        self._session.commit()
+                setattr(user, key, value)
+        self.__session.commit()
