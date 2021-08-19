@@ -61,7 +61,7 @@ def logout() -> None:
     user = AUTH.get_user_from_session_id(sess_id)
     if user:
         AUTH.destroy_session(user.session_id)
-        redirect("/", 302)
+        return redirect(url_for('bienvenue'))
     else:
         abort(403)
 
