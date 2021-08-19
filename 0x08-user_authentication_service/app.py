@@ -9,7 +9,7 @@ AUTH = Auth()
 app = Flask(__name__)
 
 
-@app.route('/', methods=['GET'])
+@app.route('/', methods=['GET', 'DELETE'])
 def bienvenue() -> str:
     """ GET /
       - Bienvenue message
@@ -61,7 +61,8 @@ def logout() -> None:
     user = AUTH.get_user_from_session_id(sess_id)
     if user:
         AUTH.destroy_session(user.id)
-        return redirect(url_for('bienvenue'))
+        print("---> method: {}".format(request.method))
+        return redirect(url_for('bienvenue', _method='GET'))
     else:
         abort(403)
 
