@@ -45,7 +45,7 @@ class DB:
         """ Method - retireve user
         """
         try:
-            user = self._session.query(User).filter_by(**kwargs)[0]
+            user = self.__session.query(User).filter_by(**kwargs)[0]
             return user
         except InvalidRequestError:
             raise InvalidRequestError
