@@ -21,3 +21,11 @@ class TestAccessNestedMap(unittest.TestCase):
     def test_access_nested_map(self, a: Dict, b: Tuple, out: Any):
         """test cases for access_nested_map method"""
         self.assertEqual(access_nested_map(a, b), out)
+
+    @parameterized.expand([
+        ({}, ("a",), KeyError),
+        ({"a": 1}, ("a", "b"), KeyError),
+    ])
+    def test_access_nested_map_exception(self, a: Dict, b: Tuple, out: Any):
+        """Method to handle and test utils.access_nested_map raises"""
+        self.assertRaises(out, access_nested_map, a, b)
