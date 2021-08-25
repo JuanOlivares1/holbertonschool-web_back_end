@@ -1,10 +1,17 @@
 #!/usr/bin/env python3
 """Unittest for utils
 """
-import Unittest
+import unittest
+from utils import access_nested_map
+from parameterized import parameterized
+from typing import (
+    Tuple,
+    Any,
+    Dict
+)
 
 
-class TestAccessNestedMap(Unittest.TestCase):
+class TestAccessNestedMap(unittest.TestCase):
     """Test for utils
     """
     @parameterized.expand([
