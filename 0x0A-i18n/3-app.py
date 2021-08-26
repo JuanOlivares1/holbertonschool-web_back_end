@@ -2,7 +2,7 @@
 """Seting up basic Flask app
 """
 from flask import Flask, render_template, request
-from flask_babel import Babel
+from flask_babel import Babel, _
 
 app = Flask(__name__)
 
@@ -30,7 +30,7 @@ def get_locale():
 def index():
     """Route to root page
     """
-    return render_template('2-index.html')
+    return render_template('3-index.html')
 
 
 if __name__ == "__main__":
