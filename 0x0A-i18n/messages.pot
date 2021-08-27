@@ -21,4 +21,8 @@ msgid "home_title"
 msgstr ""
 msgid "home_header"
 msgstr ""
+msgid "logged_in_as"
+msgstr ""
+msgid "not_logged_in"
+msgstr ""
 
