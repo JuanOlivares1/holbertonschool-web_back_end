@@ -68,3 +68,9 @@ class Cache():
     def get_int(self, data) -> int:
         """Formats data to str"""
         return int(data)
+
+
+def replay(method: Callable) -> Callable:
+    """Display the history of calls of a particular function
+    """
+    pass
