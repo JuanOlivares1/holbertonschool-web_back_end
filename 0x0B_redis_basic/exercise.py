@@ -11,9 +11,9 @@ def count_calls(method: Callable) -> Callable:
     """Counts the number of times a method is called
     """
     @wraps(method)
-    def f(self, *argv):
+    def f(self, data):
         self._redis.incr(method.__qualname__)
-        return method(self, argv)
+        return method(self, data)
     return f
 
 
@@ -26,8 +26,9 @@ def call_history(method: Callable) -> Callable:
     @wraps(method)
     def f(self, *argv):
         for arg in argv:
-            self._redis.rpush(inputs_k, str(arg))
-        output = method(self, str(argv))
+            arg = str(arg)
+        self._redis.rpush(inputs_k, str(argv))
+        output = method(self, argv[0])
         self._redis.rpush(outputs_k, output)
         return output
     return f
