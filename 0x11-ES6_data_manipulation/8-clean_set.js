@@ -1,5 +1,5 @@
 export default function cleanSet(set, startString) {
-  if (!startString || set.size == 0) {
+  if (!startString || set.size === 0) {
     return '';
   }
   const rtn = [];
