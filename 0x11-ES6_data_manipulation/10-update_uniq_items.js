@@ -1,5 +1,5 @@
 export default function updateUniqueItems(mapObject) {
-  if (!mapObject.constructor === Map) {
+  if (mapObject.constructor !== Map) {
     throw new Error('Cannot process');
   }
   for (const obj of mapObject) {
