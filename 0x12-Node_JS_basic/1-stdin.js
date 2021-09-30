@@ -1,13 +1,11 @@
-const displayMessage = require('./0-console');
-
-displayMessage('Welcome to Holberton School, what is your name?');
+console.log('Welcome to Holberton School, what is your name?');
 process.stdin.on('data', (data) => {
-  displayMessage(`Your name is: ${data.toString()}`);
+  process.stdout.write(`Your name is: ${data.toString()}`);
   if (process.stdin.isTTY) {
     process.exit();
   }
   process.on('exit', () => {
-    displayMessage('This important software is now closing');
+    console.log('This important software is now closing');
     process.exit();
   });
 });
