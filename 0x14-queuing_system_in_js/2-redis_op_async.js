@@ -8,16 +8,12 @@ import { createClient } from 'redis';
 
   await client.connect();
 
-  function setNewSchool(schoolName, value) {
-    client.set(schoolName, value)
-      .then(res => console.log(`Reply: ${res}`))
-      .catch(err => console.log(err));
+  async function setNewSchool(schoolName, value) {
+    console.log(`Reply: ${await client.set(schoolName, value)}`);
   }
 
-  function displaySchoolValue(schoolName) {
-    client.get(schoolName)
-      .then(res => console.log(res))
-      .catch(err => console.log(err));
+  async function displaySchoolValue(schoolName) {
+    console.log(await client.get(schoolName));
   }
 
   displaySchoolValue('Holberton');
